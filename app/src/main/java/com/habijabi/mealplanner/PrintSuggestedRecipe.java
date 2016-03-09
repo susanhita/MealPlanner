@@ -1,25 +1,19 @@
 package com.habijabi.mealplanner;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.Toast;
-import android.widget.ListView;
 import android.app.ListActivity;
 
-import java.util.ArrayList;
 
 
 public class PrintSuggestedRecipe extends ListActivity {
@@ -52,21 +46,22 @@ public class PrintSuggestedRecipe extends ListActivity {
                     cursor.moveToFirst();
                     listAdapter = new SimpleCursorAdapter(PrintSuggestedRecipe.this, android.R.layout.simple_list_item_1, cursor, new String[]{"NAME"}, new int[]{android.R.id.text1}, 0);
                     setListAdapter(listAdapter);
+                    cursor.close();
+                    db.close();
                     return true;
+
                 } catch (SQLiteException e) {
                     return false;
                 }
             }
             protected void onPostExecute(Boolean success) {
-                Toast toast = Toast.makeText(PrintSuggestedRecipe.this, "database cant be accessed", Toast.LENGTH_SHORT);
 
             }
         }
 
     public void onDestroy() {
         super.onDestroy();
-        cursor.close();
-        db.close();
+
 
     }
 

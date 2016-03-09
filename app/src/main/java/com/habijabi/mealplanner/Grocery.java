@@ -2,23 +2,12 @@ package com.habijabi.mealplanner;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlarmManager;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.os.SystemClock;
-import android.provider.CalendarContract;
 import android.os.Bundle;
-import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
-import java.util.Calendar;
 
 public class Grocery extends Activity {
     public static Boolean grocery=false;

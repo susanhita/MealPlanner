@@ -9,10 +9,6 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 import java.util.Random;
 public class RandomReceipe extends Activity {
     int max;
@@ -50,12 +46,10 @@ public class RandomReceipe extends Activity {
         }
 
         protected void onPostExecute(String row_number) {
-            Log.v("XXXXXXXXXXXXXXXXX", row_number);
             int max = Integer.parseInt(row_number);
             int min = 1;
             Random rand = new Random();
             int id = 1 + rand.nextInt((max - min) + 1);
-            Log.v("rowwwwwwwwww", String.format("%s",id));
 
 
             Intent intent = new Intent(RandomReceipe.this, RecipeActivity.class);
