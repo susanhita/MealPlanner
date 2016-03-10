@@ -46,8 +46,7 @@ public class PrintSuggestedRecipe extends ListActivity {
                     cursor.moveToFirst();
                     listAdapter = new SimpleCursorAdapter(PrintSuggestedRecipe.this, android.R.layout.simple_list_item_1, cursor, new String[]{"NAME"}, new int[]{android.R.id.text1}, 0);
                     setListAdapter(listAdapter);
-                    cursor.close();
-                    db.close();
+
                     return true;
 
                 } catch (SQLiteException e) {
@@ -61,6 +60,8 @@ public class PrintSuggestedRecipe extends ListActivity {
 
     public void onDestroy() {
         super.onDestroy();
+        cursor.close();
+        db.close();
 
 
     }
